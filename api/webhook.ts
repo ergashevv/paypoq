@@ -302,4 +302,14 @@ bot.callbackQuery("group_lost", async (ctx) => {
   await ctx.editMessageReplyMarkup({ reply_markup: groupMenu(myCount) });
 });
 
-export default webhookCallback(bot, "https");
+const handler = webhookCallback(bot, "https");
+
+export default (req: any, res: any) => {
+  // GET so'rovlari (brauzer, health check) - tez javob, timeout oldini olish
+  if (req.method === "GET") {
+    res.writeHead(200, { "Content-Type": "text/plain" });
+    res.end("OK");
+    return;
+  }
+  return handler(req, res);
+};
