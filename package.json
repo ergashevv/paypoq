@@ -1,0 +1,21 @@
+{
+  "name": "paypoqtopar-bot",
+  "version": "1.0.0",
+  "description": "Paypoqlaringizni kuzatadigan va yo'qolganlarini topadigan kulguli Telegram bot",
+  "type": "module",
+  "scripts": {
+    "dev": "tsc && node build/server.js",
+    "deploy": "vercel --prod",
+    "build": "tsc"
+  },
+  "dependencies": {
+    "@upstash/redis": "^1.34.1",
+    "dotenv": "^17.2.4",
+    "grammy": "^1.24.1"
+  },
+  "devDependencies": {
+    "@types/node": "^25.2.3",
+    "@vercel/node": "^3.2.0",
+    "typescript": "^5.3.3"
+  }
+}
